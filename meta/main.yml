@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: nvm
   author: dm00000
   description: NVM installation for Linux
   company: "MORGANGRAPHICS"

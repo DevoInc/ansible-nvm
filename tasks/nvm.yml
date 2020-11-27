@@ -95,7 +95,8 @@
   # https://news.ycombinator.com/item?id=12766049
   # https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install
   - name: Install NVM
-    shell: "{{ run_command }} https://raw.githubusercontent.com/creationix/nvm/v{{ nvm_version }}/install.sh | NVM_SOURCE={{ nvm_source }} NVM_DIR={{ nvm_dir }} PROFILE={{ nvm_profile }} {{ user_shell.alias }}"
+    shell: "{{ run_command }} https://raw.githubusercontent.com/creationix/nvm/v{{ nvm_version }}/install.sh \ 
+      | NVM_SOURCE={{ nvm_source }} NVM_DIR={{ nvm_dir }} PROFILE={{ nvm_profile }} {{ user_shell.alias }}"
     args:
       warn: false
     register: nvm_result

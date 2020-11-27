@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  roles:
+    - role: ansible-nvm
+      nodejs_version: "8.16.0"
+      nvm_dir: "/opt/nvm"
+
+    - role: ansible-nvm
+      nodejs_version: "12.19.0"
+      nvm_dir: "/opt/nvm"
