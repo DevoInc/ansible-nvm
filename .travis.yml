@@ -17,10 +17,6 @@ install:
   - pip install molecule molecule-docker yamllint ansible-lint docker flake8
 
 before_script:
-  # Use actual Ansible Galaxy role name for the project directory.
-  - cd ../
-  - mv ansible-$ROLE_NAME devoinc.$ROLE_NAME
-  - cd devoinc.$ROLE_NAME
 
 script:
   # Run tests.
