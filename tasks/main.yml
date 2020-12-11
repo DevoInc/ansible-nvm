@@ -226,3 +226,25 @@
       state: absent
 
   when: nvm_uninstall | bool
+
+- name: Make sure that Ansible local fact directory exists
+  file:
+    path: '/etc/ansible/facts.d'
+    state: 'directory'
+    owner: 'root'
+    group: 'root'
+    mode: 0755
+
+- name: Save Ansible local fact script
+  template:
+    src: 'etc/ansible/facts.d/nvm.fact.j2'
+    dest: '/etc/ansible/facts.d/nvm.fact'
+    owner: 'root'
+    group: 'root'
+    mode: 0644
+  register: nvm__register_fact_script
+
+- name: Reload Ansible local facts
+  setup:
+    filter: ansible_local
+  when: nvm__register_fact_script is changed
