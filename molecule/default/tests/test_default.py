@@ -1,5 +1,4 @@
 import os
-
 import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
@@ -10,12 +9,11 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 def test_nodejs_version8(host):
     ansible_vars = host.ansible.get_variables()
     nodejs_version = "v" + ansible_vars.get('nodejs_version8')
-    nodejs_output = os.listdir('/opt/nvm/versions/node/')
+    nodejs_output = host.file("/opt/nvm/versions/node").listdir()
     assert str(nodejs_version) in nodejs_output
-
 
 def test_nodejs_version12(host):
     ansible_vars = host.ansible.get_variables()
     nodejs_version = "v" + ansible_vars.get('nodejs_version12')
-    nodejs_output = os.listdir('/opt/nvm/versions/node/')
+    nodejs_output = host.file("/opt/nvm/versions/node").listdir()
     assert str(nodejs_version) in nodejs_output
