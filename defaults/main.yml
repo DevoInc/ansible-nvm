@@ -1,23 +1,20 @@
 ---
-#SEMVER
-role_version: "1.4.2"
-
-role_repo: "https://github.com/morgangraphics/ansible-role-nvm"
+nvm_role_repo: "https://github.com/devoinc/ansible-nvm"
 
 # Set the specific version of Node.js to install ("4.8.0", "6.11.0").
 # use lts for latest Long Term Release
 # Version numbers from Nodesource: https://github.com/nodesource/distributions
-nodejs_version: "lts"
+nvm_nodejs_version: "lts"
 
 # NVM has a bash autocomplete functionality for when a user logs into a machine. Cool feature
 # but only works when a human logs into said machine. More of a convienence method for this role
-autocomplete: false
+nvm_autocomplete: false
 
 # NVM will automatically alias First Run version as default which is more than likely
 # what people will use this for This will allow for installation/upgrade of multiple versions on an existing
 # machine for the scenarios described in
 # https://github.com/morgangraphics/ansible-role-nvm/pull/7#issuecomment-481423099
-default: false
+nvm_default: false
 
 # The next 3 options only apply to wget and curl - If you don't know what you're doing
 # you are fine to leave these alone.
@@ -60,7 +57,7 @@ nvm_install: "wget"
 # BASH: .bashrc
 # ZSH: .zshrc
 #
-nvm_profile: ".bashrc"
+nvm_profile: "~/.bashrc"
 
 # NVM source location - i.e. you host your own fork
 nvm_source: ""
@@ -69,4 +66,4 @@ nvm_source: ""
 nvm_version: "0.35.2"
 
 # Uninstall NVM
-uninstall: false
+nvm_uninstall: false
