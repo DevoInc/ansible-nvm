@@ -12,6 +12,7 @@ def test_nodejs_version8(host):
     nodejs_output = host.file("/opt/nvm/versions/node").listdir()
     assert str(nodejs_version) in nodejs_output
 
+
 def test_nodejs_version12(host):
     ansible_vars = host.ansible.get_variables()
     nodejs_version = "v" + ansible_vars.get('nodejs_version12')
